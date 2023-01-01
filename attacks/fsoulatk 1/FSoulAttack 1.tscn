@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://DmgBox.gd" type="Script" id=1]
+[ext_resource path="res://attacks/fsoulatk 1/FSoulAttack 1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/soul/Other/UT Soul.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shoot"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.55, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 300, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.55, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 4 ), Vector2( 1, 4 ), Vector2( 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 0.3 ),
+"transitions": PoolRealArray( 0.450625, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="FSoulAttack 1" type="Node2D" groups=["attack"]]
+visible = false
+script = ExtResource( 2 )
+
+[node name="Soul" type="Node2D" parent="."]
+position = Vector2( -182, 68 )
+
+[node name="Sprite" type="Sprite" parent="Soul"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 300, 0 )
+rotation = -1.5708
+scale = Vector2( 1, 1e-05 )
+texture = ExtResource( 3 )
+
+[node name="Animation" type="AnimationPlayer" parent="Soul/Sprite"]
+anims/shoot = SubResource( 1 )
+
+[node name="DmgBox" type="Area2D" parent="Soul/Sprite"]
+script = ExtResource( 1 )
+hide_when_hit = true
+follow_defdmg = false
+damage = 5
+disappear_level = 2
+emy_index = 1
+
+[node name="Collision" type="CollisionPolygon2D" parent="Soul/Sprite/DmgBox"]
+polygon = PoolVector2Array( -2, 8, -8, 2, -8, -6, -6, -8, -4, -8, -1, -6, 1, -6, 4, -8, 6, -8, 8, -6, 8, 2, 2, 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

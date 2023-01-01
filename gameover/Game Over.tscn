@@ -1,0 +1,122 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://scenes/References.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/papyrus-font-undertale.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/DeterminationMonoWebRegular-Z5oq.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/undertale-sans-overworld.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://gameover/GAMEOVER.gd" type="Script" id=5]
+[ext_resource path="res://gameover/Game Over.gd" type="Script" id=6]
+[ext_resource path="res://gameover/Soulbreaking.gd" type="Script" id=7]
+[ext_resource path="res://gameover/StayDetermined.gd" type="Script" id=8]
+[ext_resource path="res://audio/soul shatter.mp3" type="AudioStream" id=9]
+[ext_resource path="res://sprites/soul/Other/UT Soul.png" type="Texture" id=10]
+[ext_resource path="res://sprites/soul/Other/S.Shard2.png" type="Texture" id=11]
+[ext_resource path="res://gameover/Ut Game over.png" type="Texture" id=12]
+[ext_resource path="res://sprites/soul/Other/S.Shard1.png" type="Texture" id=13]
+[ext_resource path="res://sprites/soul/Other/SOUL Break.png" type="Texture" id=14]
+[ext_resource path="res://sprites/soul/Other/S.Shard3.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+extra_spacing_char = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="RichTextEffect" id=8]
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 2
+pause = true
+frame_0/texture = ExtResource( 10 )
+frame_1/texture = ExtResource( 14 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 115, 0 )
+initial_velocity = 150.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+radial_accel = 40.0
+radial_accel_random = 1.0
+tangential_accel = 32.02
+tangential_accel_random = 1.0
+angle = 720.0
+
+[sub_resource type="AnimatedTexture" id=5]
+frames = 4
+frame_0/texture = ExtResource( 13 )
+frame_1/texture = ExtResource( 11 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 15 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 11 )
+frame_3/delay_sec = 0.0
+
+[node name="Game Over" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="References" parent="." instance=ExtResource( 1 )]
+centered = false
+
+[node name="GAMEOVER" type="Sprite" parent="."]
+position = Vector2( 111, 33 )
+texture = ExtResource( 12 )
+centered = false
+script = ExtResource( 5 )
+
+[node name="Determination" type="RichTextLabel" parent="GAMEOVER"]
+margin_left = 20.0
+margin_top = 287.0
+margin_right = 401.0
+margin_bottom = 429.0
+focus_mode = 2
+custom_fonts/italics_font = SubResource( 6 )
+custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+scroll_active = false
+selection_enabled = true
+custom_effects = [ SubResource( 8 ), null ]
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="GAMEOVER/Determination"]
+wait_time = 0.03
+autostart = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="soul" type="Sprite" parent="."]
+position = Vector2( 126, 349 )
+texture = SubResource( 3 )
+region_rect = Rect2( -19.917, -12.8693, 103.521, 47.139 )
+script = ExtResource( 7 )
+
+[node name="Shards" type="Particles2D" parent="soul"]
+visible = false
+amount = 6
+lifetime = 10.0
+preprocess = 10.0
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 4 )
+texture = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ShatterSnd" type="AudioStreamPlayer" parent="soul"]
+stream = ExtResource( 9 )
+
+[connection signal="timeout" from="GAMEOVER/Determination/Timer" to="GAMEOVER/Determination" method="_on_Timer_timeout"]
+[connection signal="GameOverTitle" from="soul" to="GAMEOVER" method="_on_soul_GameOverTitle"]

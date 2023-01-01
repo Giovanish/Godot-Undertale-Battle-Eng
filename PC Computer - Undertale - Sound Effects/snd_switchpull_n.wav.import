@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snd_switchpull_n.wav-a57d2ba1c4e9858342cd40d12c243221.sample"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/snd_switchpull_n.wav"
+dest_files=[ "res://.import/snd_switchpull_n.wav-a57d2ba1c4e9858342cd40d12c243221.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

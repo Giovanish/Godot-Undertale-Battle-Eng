@@ -1,0 +1,142 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fonts/undertale status font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/ut-hp-font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/hud/Healthprint.gd" type="Script" id=3]
+[ext_resource path="res://scripts/hud/HealthBG.gd" type="Script" id=4]
+[ext_resource path="res://scripts/hud/InfoStatus.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=30]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=53]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.752941, 0, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=51]
+
+[sub_resource type="StyleBoxFlat" id=64]
+bg_color = Color( 1, 1, 0, 1 )
+border_color = Color( 1, 1, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=35]
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 1, 0, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=37]
+
+[node name="HUD" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -290.0
+margin_top = 160.0
+margin_right = 285.0
+margin_bottom = 182.0
+custom_constants/separation = 5
+
+[node name="InfoStatus" type="RichTextLabel" parent="."]
+margin_right = 209.807
+margin_bottom = 22.0
+rect_min_size = Vector2( 209.807, 0 )
+custom_fonts/normal_font = SubResource( 30 )
+bbcode_enabled = true
+bbcode_text = "T"
+text = "T"
+scroll_active = false
+script = ExtResource( 5 )
+
+[node name="HPtext" type="CenterContainer" parent="."]
+margin_left = 214.0
+margin_right = 240.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 26, 22 )
+
+[node name="HP" type="RichTextLabel" parent="HPtext"]
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 26, 11 )
+custom_fonts/normal_font = SubResource( 53 )
+text = "hp"
+fit_content_height = true
+scroll_active = false
+
+[node name="Health" type="HBoxContainer" parent="."]
+margin_left = 245.0
+margin_right = 579.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 21 )
+custom_constants/separation = 9
+alignment = 2
+
+[node name="HealthBG" type="ProgressBar" parent="Health"]
+margin_right = 25.0
+margin_bottom = 21.0
+grow_horizontal = 2
+rect_min_size = Vector2( 25, 21 )
+rect_pivot_offset = Vector2( 5, 0 )
+custom_styles/fg = SubResource( 54 )
+custom_styles/bg = SubResource( 51 )
+max_value = 20.0
+step = 0.0
+value = 20.0
+percent_visible = false
+script = ExtResource( 4 )
+
+[node name="HealthCover" type="ProgressBar" parent="Health/HealthBG"]
+margin_right = 1286.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 1286, 21 )
+custom_styles/fg = SubResource( 64 )
+custom_styles/bg = SubResource( 35 )
+max_value = 1000.0
+step = 0.0
+page = 980.0
+value = 20.0
+percent_visible = false
+
+[node name="KARMA" type="ProgressBar" parent="Health/HealthBG"]
+modulate = Color( 0.721569, 0.513726, 0.513726, 1 )
+self_modulate = Color( 0.360784, 0.027451, 0.027451, 1 )
+margin_left = 40.0
+margin_top = -6.0
+margin_right = 80.0
+margin_bottom = 34.0
+custom_styles/fg = SubResource( 36 )
+custom_styles/bg = SubResource( 37 )
+percent_visible = false
+
+[node name="KRtext" type="CenterContainer" parent="Health"]
+visible = false
+margin_left = 34.0
+margin_right = 60.0
+margin_bottom = 22.0
+
+[node name="KR" type="RichTextLabel" parent="Health/KRtext"]
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 26, 10 )
+custom_fonts/normal_font = SubResource( 53 )
+text = "Kr"
+fit_content_height = true
+scroll_active = false
+
+[node name="Healthprint" type="RichTextLabel" parent="Health"]
+margin_left = 34.0
+margin_right = 334.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 300, 21 )
+custom_fonts/normal_font = SubResource( 30 )
+bbcode_enabled = true
+bbcode_text = "92 / 92"
+text = "92 / 92"
+scroll_active = false
+script = ExtResource( 3 )
+
+[connection signal="value_changed" from="Health/HealthBG/HealthCover" to="Health/HealthBG" method="_on_HealthCover_value_changed"]

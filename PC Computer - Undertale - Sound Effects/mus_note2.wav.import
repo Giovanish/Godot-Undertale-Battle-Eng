@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mus_note2.wav-103826f77f4c9855202e00416a75a1c7.sample"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/mus_note2.wav"
+dest_files=[ "res://.import/mus_note2.wav-103826f77f4c9855202e00416a75a1c7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

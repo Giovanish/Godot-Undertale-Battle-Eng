@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_computer.ogg-89125a6022ba664eefa81ce7c31988aa.oggstr"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/mus_computer.ogg"
+dest_files=[ "res://.import/mus_computer.ogg-89125a6022ba664eefa81ce7c31988aa.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/soul damge.mp3-58aecd15999248651e1c4baafd550b9d.mp3str"
+
+[deps]
+
+source_file="res://audio/soul damge.mp3"
+dest_files=[ "res://.import/soul damge.mp3-58aecd15999248651e1c4baafd550b9d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

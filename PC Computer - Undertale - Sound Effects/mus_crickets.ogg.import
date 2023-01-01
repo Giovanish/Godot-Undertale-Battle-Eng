@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_crickets.ogg-d57d5a2426de6e01528c615cda689b22.oggstr"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/mus_crickets.ogg"
+dest_files=[ "res://.import/mus_crickets.ogg-d57d5a2426de6e01528c615cda689b22.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

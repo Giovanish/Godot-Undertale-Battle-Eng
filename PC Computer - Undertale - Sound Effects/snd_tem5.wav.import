@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snd_tem5.wav-48c08947221f960877aab8a8070d9f4c.sample"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/snd_tem5.wav"
+dest_files=[ "res://.import/snd_tem5.wav-48c08947221f960877aab8a8070d9f4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mon vaporized.mp3-49aaf9611e29f00666f6f56a202535e8.mp3str"
+
+[deps]
+
+source_file="res://audio/mon vaporized.mp3"
+dest_files=[ "res://.import/mon vaporized.mp3-49aaf9611e29f00666f6f56a202535e8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

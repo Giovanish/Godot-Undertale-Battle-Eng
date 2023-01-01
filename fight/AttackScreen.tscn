@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/fight/Attack screen.png" type="Texture" id=2]
+[ext_resource path="res://scripts/attacks/AttackScreen.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 282.5, 64.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 216, 65 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 104, 65 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 26, 65 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 13.2979, 65 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 66.5 )
+
+[node name="AttackScreen" type="Control" groups=["atkscrchild"]]
+margin_left = -283.0
+margin_top = 15.0
+margin_right = 282.0
+margin_bottom = 145.0
+rect_clip_content = true
+script = ExtResource( 3 )
+
+[node name="AtkArea" type="Node2D" parent="."]
+
+[node name="ASsprite" type="Sprite" parent="AtkArea"]
+position = Vector2( 283, 65 )
+texture = ExtResource( 2 )
+
+[node name="Atkboxes" type="Node2D" parent="AtkArea"]
+
+[node name="Atkbox 1" type="Area2D" parent="AtkArea/Atkboxes" groups=["atkbox"]]
+
+[node name="Collision" type="CollisionShape2D" parent="AtkArea/Atkboxes/Atkbox 1"]
+position = Vector2( 282.5, 65.5 )
+shape = SubResource( 2 )
+
+[node name="Atkbox 2" type="Area2D" parent="AtkArea/Atkboxes" groups=["atkbox"]]
+
+[node name="Collision" type="CollisionShape2D" parent="AtkArea/Atkboxes/Atkbox 2"]
+position = Vector2( 283, 65 )
+shape = SubResource( 3 )
+
+[node name="Atkbox 3" type="Area2D" parent="AtkArea/Atkboxes" groups=["atkbox"]]
+
+[node name="Collision2" type="CollisionShape2D" parent="AtkArea/Atkboxes/Atkbox 3"]
+position = Vector2( 283, 65 )
+shape = SubResource( 4 )
+
+[node name="Atkbox 4" type="Area2D" parent="AtkArea/Atkboxes" groups=["atkbox"]]
+
+[node name="Collision" type="CollisionShape2D" parent="AtkArea/Atkboxes/Atkbox 4"]
+position = Vector2( 283, 65 )
+shape = SubResource( 5 )
+
+[node name="Atkbox 5" type="Area2D" parent="AtkArea/Atkboxes" groups=["atkbox"]]
+
+[node name="Collision" type="CollisionShape2D" parent="AtkArea/Atkboxes/Atkbox 5"]
+position = Vector2( 268, 65 )
+scale = Vector2( 0.376, 1 )
+shape = SubResource( 6 )
+
+[node name="MissBox" type="Area2D" parent="AtkArea" groups=["miss"]]
+position = Vector2( 13, 65 )
+
+[node name="Collision" type="CollisionShape2D" parent="AtkArea/MissBox"]
+position = Vector2( 571, 1 )
+shape = SubResource( 1 )

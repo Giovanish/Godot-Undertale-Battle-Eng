@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mus_f_newlaugh_low.ogg-a2cb812e997e5fb71fcff97df780a997.oggstr"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/mus_f_newlaugh_low.ogg"
+dest_files=[ "res://.import/mus_f_newlaugh_low.ogg-a2cb812e997e5fb71fcff97df780a997.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

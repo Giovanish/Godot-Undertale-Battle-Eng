@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snd_elecdoor_shut.wav-78c3a948a38cae766b35e875c691e9b8.sample"
+
+[deps]
+
+source_file="res://PC Computer - Undertale - Sound Effects/snd_elecdoor_shut.wav"
+dest_files=[ "res://.import/snd_elecdoor_shut.wav-78c3a948a38cae766b35e875c691e9b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

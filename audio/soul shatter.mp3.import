@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/soul shatter.mp3-5ce0d48d0a9f8ed64b6f2374c18171dc.mp3str"
+
+[deps]
+
+source_file="res://audio/soul shatter.mp3"
+dest_files=[ "res://.import/soul shatter.mp3-5ce0d48d0a9f8ed64b6f2374c18171dc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
